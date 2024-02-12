@@ -1,0 +1,31 @@
+package com.jsp.medishop.dto;
+
+import java.util.List;
+
+import org.hibernate.annotations.ManyToAny;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import lombok.Data;
+
+@Entity
+@Data
+public class Vendor 
+{
+	
+	private int id;
+	private String name;
+	@Column(unique = true,nullable = false)
+	private String email;
+	@Column(length = 8)
+	private String password;
+	private String address;
+	@Column(unique = true,nullable = false)
+	private long phone;
+	@Column(unique = true,nullable = false,length = 12)
+	private long adharNumber;
+	@ManyToMany
+	private List<Customer>customers;
+
+}
