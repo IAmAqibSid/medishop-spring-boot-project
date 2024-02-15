@@ -16,13 +16,20 @@ public class Customer
 	private int id;
 	private LocalDate dob;
 	private String name;
+	
 	@Column(unique = true,nullable = false)
 	private String email;
+	
+	@Column(length = 16)
 	private String password;
+	
 	@Column(unique = true,nullable = false)
 	private long phone;
-	@Column(unique = true,nullable = false)
+	
+	@Column(unique = true,nullable = false, length = 12)
 	private long adharNumber;
+	
+	
 	@ManyToMany(mappedBy = "customers")
 	private List<Vendor>vendors; 
 
